@@ -1,26 +1,9 @@
+library(tidyverse)
+library(here)
 library(patchwork)
 library(ggridges)
 
-#Descriptive stats plots
-
-#descriptive box plots
-boxes <- all_dat  %>% select(Year, DOY, WindSp, TempShallow_max, Total_Precip_mm, Quap_Flow, PARW2,
-                                        SpCondShallow, TurbShallow, PhycoRFUShallow, ODOShallow_max, pHShallow_max, Schmidt) %>%
-  pivot_longer(cols = 3:13, names_to = "Parameter", values_to = "Value" )
-
-ggplot(boxes, aes(Year, Value, fill = factor(Year))) +
-  geom_boxplot() + facet_wrap(~Parameter, scales = "free_y") +
-  scale_fill_viridis_d(option = "plasma", direction = 1)+
-  theme_ridges(grid = FALSE, center_axis_labels = TRUE)+
-  theme(axis.text.x = element_text(face = "bold", size = 12),
-        axis.text.y = element_text(face = "bold", size = 12),
-        axis.title.x = element_text(face = "bold", size =12),
-        axis.title.y = element_text(face = "bold", size = 12),
-        panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        axis.ticks.y = element_blank(),
-        legend.text = element_text(face = "bold", size =12),
-        legend.title = element_text(face = "bold", size =12))
+all_dat <- read_csv(here('data/processed_data', 'BP_all_June72022.csv'))
 
 #Ridge Density Plots
 
@@ -234,6 +217,7 @@ ODO_max <- ggplot(all_dat, aes(x = ODOShallow_max, y = factor(Year), fill = stat
         legend.title = element_text(face = "bold", size =12))
 
 
+##Figure 4 - multipanel ridge density plot
 
 #Patchwork plot
 layout <- "
@@ -246,7 +230,7 @@ JJKK###
 phyco + cond + turb + schmidt + pH_max + ODO_max + temp_max + PAR + wind + rain + flow + plot_layout(design = layout)
 
 
-#Nutrients
+#BPWTP Phosphorus (Figure 7)
 Phos_tot <- ggplot(all_dat, aes(x = Phosphate_total, y = factor(Year), fill = stat(x))) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.001, colour= "grey", jittered_points = TRUE, point_colour = "black") +
   scale_x_continuous(limits = c(0, 250)) + 

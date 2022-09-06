@@ -724,7 +724,7 @@ write_csv(new_20, here("data/processed_data", "buoy_gam_2020.csv"))
 
 
 
-##plot ####
+##Figure 2 - GAM multipanel ####
 
 (p2014 + p2015 + p2016)/(p2017 + p2018 + p2019)/(p2020 + plot_spacer() + plot_spacer())
 
@@ -733,5 +733,6 @@ layout_2 <- "
  EEFFGG##
 "
 
+#Fig S2 - plot of partial effects
 gam_14 + gam_15 + gam_16 + gam_17+ gam_18 + gam_19 + gam_20 + plot_layout(design = layout_2) +
   plot_annotation(tag_levels = 'A') & theme(plot.tag = element_text(face = "bold", size = 16))
