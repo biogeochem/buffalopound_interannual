@@ -1,64 +1,51 @@
 # Blooms and flows: Effects of variable hydrology and management on reservoir water quality 
 
-## Summary
+## Abstract
 
-Provide a brief description of the project - 150 words.
+Flow management has the potential to significantly affect water quality. Shallow lakes in arid regions are especially susceptible to flow management changes which can have important implications for the formation of cyanobacterial blooms. Here, we reveal water quality shifts across a gradient of managed source water inflow regimes. Using in situ monitoring data, we studied a seven-year time span during which inflows to a shallow, eutrophic drinking water reservoir transitioned from primarily natural landscape runoff (2014 to 2015) to managed flows from a larger upstream reservoir (Lake Diefenbaker; 2016 to 2020) and identified significant changes in cyanobacteria (as phycocyanin) using generalized additive models to classify cyanobacterial bloom formation. We then connected changes in water source with shifts in chemistry and the occurrence of cyanobacterial blooms using principal components analysis. Phycocyanin was greater in years with managed reservoir inflow from mesotrophic Lake Diefenbaker (2016 to 2020) but dissolved organic matter (DOM) and specific conductivity, important determinants of drinking water quality, were greatest in years when landscape runoff dominated lake water source (2014 to 2015). Most notably, despite changing rapidly, it took multiple years for lake water to return to a consistent and reduced level of DOM after managed inflows from upstream Lake Diefenbaker were resumed, an observation that underscores how resilience may be hindered by weak resistance to change and slow recovery. Environmental flows for water quality are rarely defined yet here it appears trade-offs exist between poor water quality via elevated conductivity and DOM, and higher bloom risk. Taken together, our findings have important implications for water managers who must protect water quality while adapting to projected hydroclimatic change. 
 
-## Highly Qualified Personnel
+## Co-Authors
 
-- Name, Institution, email, ORCID 0000-0000-0000-0000
-
-## Principle Investigators
-
+- Kristin Painter, University of Saskatchewan, kristin.painter@usask.ca, ORCID 0000-0003-3264-0961
 - Jason Venkiteswaran, Wilfrid Laurier University, jvenkiteswaran@wlu.ca, ORCID 0000-0002-6574-7071
+- Helen Baulch, University of Saskatchewan, helen.baulch@usask.ca, ORCID 0000-0001-9018-4998
 
-## Primary Contact  
+## Corresponding Author 
 
-- Jason Venkiteswaran, Wilfrid Laurier University, jvenkiteswaran@wlu.ca, ORCID 0000-0002-6574-7071
-
-## Producer  
-
-- Jason Venkiteswaran, Wilfrid Laurier University, jvenkiteswaran@wlu.ca, ORCID 0000-0002-6574-7071
-
-## Data sources
-
-- Provide links to any data used from external providers and/or submodules and their associated management source (e.g. IISD-ELA, OMOECC).
+- Kristin Painter, University of Saskatchewan, kristin.painter@usask.ca, ORCID 0000-0003-3264-0961
 
 ## Funding sources
 
-- List your funding sources, grant names, and grant numbers as applicable.
+- Global Water Futures: FORecasting tools and Mitigation options for diverse BLOOM-affected lakes (FORMBLOOM)
+- Mitacs Accelerate Industry Partnership with the Buffalo Pound Water Treatment Plant
+- Canadian Foundation for Innovation 
 
 ## Keywords
 
-List keywords separated by commas
+cyanobacterial blooms, dissolved organic matter, flow management, resilience, water quality, environmental flows 
 
 ## Geographic Coverage
 
-- Geo Bounding Box: West Long
-- Geo Bounding Box: East Long
-- Geo Bounding Box: North Lat
-- Geo Bounding Box: South Lat
+- Site coordinates: 50°35’8.8” N, 105°23’0.24” W
 
 ## Temporal Coverage
 
-- Start: YYYY-MM-DD
-- End: YYYY-MM-DD
+- Start: 2014-06-11
+- End: 2020-10-01
 
 ## Additional information and support
 
-- Sensitive Data Flag - Human Participants: YES or NO
-- Sensitive Data Flag - Indigenous Partnerships: YES or NO
-- Sensitive Data Flag - Government Partnerships: YES or NO
-- Sensitive Data Flag - Industry Partnerships: YES or NO
+- Sensitive Data Flag - Human Participants: NO
+- Sensitive Data Flag - Indigenous Partnerships: NO
+- Sensitive Data Flag - Government Partnerships: NO
+- Sensitive Data Flag - Industry Partnerships: YES 
 - Access Restrictions
 
 ## Software  
 
-The software (and version) used to create the dataset.  
+R Version 4.0.5  
 
 ## Repo content information
-
-Use the space below to summarize the structure of the repository with a decription of each folder, as applicable.
 
 ### data/raw_data
 
