@@ -217,7 +217,7 @@ ODO_max <- ggplot(all_dat, aes(x = ODOShallow_max, y = factor(Year), fill = stat
         legend.title = element_text(face = "bold", size =12))
 
 
-##Figure 4 - multipanel ridge density plot
+##Figure 5 - multipanel ridge density plot
 
 #Patchwork plot
 layout <- "
@@ -254,6 +254,6 @@ Phos_tot <- ggplot(all_dat, aes(x = Phosphate_total, y = factor(Year), fill = st
   
   
   
- +
+ 
 
 
