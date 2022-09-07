@@ -14,6 +14,10 @@ Flow management has the potential to significantly affect water quality. Shallow
 
 - Kristin Painter, University of Saskatchewan, kristin.painter@usask.ca, ORCID 0000-0003-3264-0961
 
+## Producer  
+
+- Jason Venkiteswaran, Wilfrid Laurier University, jvenkiteswaran@wlu.ca, ORCID 0000-0002-6574-7071
+
 ## Funding sources
 
 - Global Water Futures: FORecasting tools and Mitigation options for diverse BLOOM-affected lakes (FORMBLOOM)
