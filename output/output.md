@@ -1,3 +1,3 @@
 # Output
 
-Information about documents added to this folder.
+Figures and tables produced from analysis.

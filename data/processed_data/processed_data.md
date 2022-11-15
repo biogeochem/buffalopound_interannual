@@ -1,3 +1,3 @@
 # Processed Data
 
-Information about documents added to this folder.
+Processed data in formats for long-term storage.

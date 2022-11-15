@@ -1,3 +1,3 @@
 # Clean Data
 
-Information about documents added to this folder.
+Clean data in formats for long-term storage. Modified data with the appropriate column/row headers and data structure.

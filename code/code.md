@@ -1,3 +1,4 @@
 # Code
 
-Information about documents added to this folder.
+Scripts for processing raw data into cleaned data, outside derived code, 
+and user derived code.

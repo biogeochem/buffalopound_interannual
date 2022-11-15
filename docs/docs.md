@@ -1,3 +1,3 @@
 # Documents
 
-Information about documents added to this folder.
+Project notes, other documentation, etc.
