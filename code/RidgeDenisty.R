@@ -3,9 +3,21 @@ library(here)
 library(patchwork)
 library(ggridges)
 
+#Data
 all_dat <- read_csv(here('data/processed_data', 'BP_all_June72022.csv'))
 
-#Ridge Density Plots
+#Qu'appelle at Elbow drop structure daily flow data
+quap_dat <- read_csv(here('data/raw_data', 'stationO5JG006_parms.csv'))
+
+quap_dat <- quap_dat %>% filter(PARAM == 1, YEAR > 2013)%>% 
+  rename('DOY' = DD,
+         "Quap_Flow" = Value) %>%
+  select(YEAR, DOY, Quap_Flow)
+
+#join flow and weather to larger data file
+all_dat <- all_dat %>% left_join(quap_dat, by = c("Year" = "YEAR", "DOY" = "DOY"))
+
+#Ridge Density Plots (Figure 4)
 
 phyco <- ggplot(all_dat, aes(x = PhycoRFUShallow, y = factor(Year), fill = stat(x))) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.001, colour= "grey") +
@@ -230,7 +242,7 @@ JJKK###
 phyco + cond + turb + schmidt + pH_max + ODO_max + temp_max + PAR + wind + rain + flow + plot_layout(design = layout)
 
 
-#BPWTP Phosphorus (Figure 7)
+#BPWTP Phosphorus (Figure 6)
 Phos_tot <- ggplot(all_dat, aes(x = Phosphate_total, y = factor(Year), fill = stat(x))) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.001, colour= "grey", jittered_points = TRUE, point_colour = "black") +
   scale_x_continuous(limits = c(0, 250)) + 

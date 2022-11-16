@@ -98,7 +98,7 @@ p2014 <- ggplot(d_14, aes(DOY, fit)) +
         axis.text.y = element_text(face = "bold", size = 12),
         axis.title.x = element_text(face = "bold", size =12),
         axis.title.y = element_text(face = "bold", size = 12),
-        plot.title = element_text(vjust = -6, hjust = 0.05, face = "bold"),
+        plot.title = element_text(vjust = -6, hjust = 0.05),
         axis.line = element_line(),
         panel.background = element_blank(),
         panel.grid.major = element_blank(),
