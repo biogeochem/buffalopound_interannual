@@ -3,6 +3,7 @@ library(tidyverse)
 library(here)
 library(patchwork)
 library(scales)
+library(viridis)
 
 show_col(viridis_pal(option = "B")(9))
 
@@ -27,7 +28,7 @@ UV254 <- ggplot(all_dat, aes(DOY, UV_254, colour = factor(Year))) +
         axis.ticks.y = element_blank(),
         axis.line = element_line(),
         legend.position = "none",
-        panel.background = element_rect(fill = "gray"))
+        panel.background = element_blank())
 
 
 
@@ -47,7 +48,7 @@ SpCond <- ggplot(all_dat, aes(DOY, SpCondShallow, colour = factor(Year))) +
         axis.ticks.y = element_blank(),
         axis.line = element_line(),
         legend.position = "none",
-        panel.background = element_rect(fill = "gray"))
+        panel.background = element_blank())
 
 
 #Sulfate vs Conductivity plot 
@@ -55,15 +56,16 @@ mean_sulph <- all_dat %>% group_by(Year) %>% summarise("mean_Sulphate" = mean(Su
                                                        "mean_SpCondShallow" = mean(SpCondShallow, na.rm = TRUE)) 
 
 Sulph <- ggplot(all_dat, aes(SpCondShallow, Sulphate, colour = factor(Year))) +
-  geom_point(size = 2.5) + #stat_ellipse() + 
-  geom_curve(aes(x = 607.4092, y = 158.0400, xend = 912.7121, yend = 266.8500), colour = "#0D0887FF", curvature = .8,  size = 1, arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
-  geom_curve(aes(x = 912.7121, y = 266.8500, xend = 796.1487, yend = 222.4800), colour = "#5D01A6FF", curvature = 0.75, size = 1, arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
-  geom_curve(aes(x = 796.1487, y = 222.4800, xend = 873.6846, yend = 252.8800), colour = "#9C179EFF", curvature = 0.75, size = 1, arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
-  geom_curve(aes(x = 873.6846, y = 252.8800, xend = 614.8507, yend = 150.8125), colour = "#CC4678FF", curvature = 1.25, size = 1,  arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
-  geom_curve(aes(x = 614.8507, y = 150.8125, xend = 497.7493, yend = 105.0000), colour = "#ED7953FF", curvature = -0.75, size =1, arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
+  geom_point(size = 2.5) + 
+  #not run (adds arrows and centroids indicating direction of change)
+  #geom_curve(aes(x = 607.4092, y = 158.0400, xend = 912.7121, yend = 266.8500), colour = "#0D0887FF", curvature = .8,  size = 1, arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
+  #geom_curve(aes(x = 912.7121, y = 266.8500, xend = 796.1487, yend = 222.4800), colour = "#5D01A6FF", curvature = 0.75, size = 1, arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
+  #geom_curve(aes(x = 796.1487, y = 222.4800, xend = 873.6846, yend = 252.8800), colour = "#9C179EFF", curvature = 0.75, size = 1, arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
+  #geom_curve(aes(x = 873.6846, y = 252.8800, xend = 614.8507, yend = 150.8125), colour = "#CC4678FF", curvature = 1.25, size = 1,  arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
+  #geom_curve(aes(x = 614.8507, y = 150.8125, xend = 497.7493, yend = 105.0000), colour = "#ED7953FF", curvature = -0.75, size =1, arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
   #geom_curve(aes(x = 497.7493, y = 105.0000, xend = 502.8972, yend = 102.8000), colour = "#FDB32FFF", arrow = arrow(angle = 30, type = "closed", length = unit(0.20, "inches"))) +
-  geom_point(data = mean_sulph, aes(x = mean_SpCondShallow, y = mean_Sulphate), size = 5, colour = "black")+
-  geom_point(data = mean_sulph, aes(x = mean_SpCondShallow, y = mean_Sulphate), size = 3.5)+
+  #geom_point(data = mean_sulph, aes(x = mean_SpCondShallow, y = mean_Sulphate), size = 5, colour = "black")+
+  #geom_point(data = mean_sulph, aes(x = mean_SpCondShallow, y = mean_Sulphate), size = 3.5)+
   scale_colour_viridis_d(option = "plasma", direction = 1) + 
   labs(colour = "Year") + 
   labs(x ="Specific Conductivity (µS/cm)", y = "Sulfate (mg/L)") +
@@ -77,7 +79,7 @@ Sulph <- ggplot(all_dat, aes(SpCondShallow, Sulphate, colour = factor(Year))) +
         axis.line = element_line(),
         legend.text = element_text(face = "bold", size = 12),
         legend.title = element_text(face = "bold", size =12),
-        panel.background = element_rect(fill = "gray"))
+        panel.background = element_blank())
 
 #Figure 6
 SpCond + UV254 + Sulph + plot_annotation(tag_levels = 'a') & theme(plot.tag = element_text(face = "bold", size = 16))
