@@ -1,3 +1,3 @@
 # Output
 
-Figures and tables produced from analysis.
+Figures produced from analysis. Supplemental figures are indicated by the "S" prefix.
