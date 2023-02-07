@@ -78,7 +78,7 @@ cond <- ggplot(all_dat, aes(x = SpCondShallow, y = factor(Year), fill = stat(x))
 PAR <- ggplot(all_dat, aes(x = PARW2, y = factor(Year), fill = stat(x))) +
   geom_density_ridges_gradient(scale = 3, rel_min_height = 0.001, colour = "grey") +
   scale_x_continuous() + 
-  scale_fill_viridis_c(option = "plasma", direction = 1, name = expression(bold("µmol/s/m" ^2))) +
+  scale_fill_viridis_c(option = "plasma", direction = 1, name = expression(bold(µmol~m^-2~s^-1))) +
   scale_y_discrete(expand = c(0,0))+
   labs(x = "PAR", y = NULL) +
   theme_ridges(grid = FALSE, center_axis_labels = TRUE)+
