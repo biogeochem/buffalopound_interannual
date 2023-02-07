@@ -18,7 +18,7 @@ UV254 <- ggplot(all_dat, aes(DOY, UV_254, colour = factor(Year))) +
   scale_colour_viridis_d(option = "plasma", direction = 1) + 
   scale_x_continuous(breaks = c(150, 175, 200, 225, 250, 275)) + 
   labs(colour = "Year") + 
-  labs(x = "Day of Year", y = expression(bold(UV[254]~(Abs/10~cm))))+ 
+  labs(x = "Day of Year", y = expression(bold("UV Absorbance at 254 nm"~(dm^-1))))+ 
   theme(axis.text.x = element_text(angle=55, hjust=1, vjust=1, face = "bold", size = 12),
         axis.text.y = element_text(face = "bold", size = 12),
         axis.title.x = element_text(face = "bold", size =12),
@@ -47,7 +47,8 @@ SpCond <- ggplot(all_dat, aes(DOY, SpCondShallow, colour = factor(Year))) +
         panel.grid.minor = element_blank(),
         axis.ticks.y = element_blank(),
         axis.line = element_line(),
-        legend.position = "none",
+        legend.text = element_text(face = "bold", size = 12),
+        legend.title = element_text(face = "bold", size =12),
         panel.background = element_blank())
 
 
@@ -77,9 +78,8 @@ Sulph <- ggplot(all_dat, aes(SpCondShallow, Sulphate, colour = factor(Year))) +
         panel.grid.minor = element_blank(),
         axis.ticks.y = element_blank(),
         axis.line = element_line(),
-        legend.text = element_text(face = "bold", size = 12),
-        legend.title = element_text(face = "bold", size =12),
+        legend.position = "none",
         panel.background = element_blank())
 
 #Figure 6
-SpCond + UV254 + Sulph + plot_annotation(tag_levels = 'a') & theme(plot.tag = element_text(face = "bold", size = 16))
+SpCond / UV254 / Sulph + plot_annotation(tag_levels = 'a') & theme(plot.tag = element_text(face = "bold", size = 16))
